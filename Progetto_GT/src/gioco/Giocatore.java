@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Giocatore {
 
 	private String nome;
-	private PlanciaNave nave;
+	private PlanciaNave plancia;
 	private int punteggio;
 	protected static ArrayList<String> listaNomi = new ArrayList<>();
 	
-	public Giocatore(String nome, PlanciaNave nave) throws Exception {
+	public Giocatore(String nome, PlanciaNave plancia) throws Exception {
 		setNome(nome);
-		setNave(nave);
+		setPlancia(plancia);
 		setPunteggio(0);
 	}
 
@@ -28,12 +28,12 @@ public class Giocatore {
 		listaNomi.add(nome);
 	}
 
-	public PlanciaNave getNave() {
-		return nave;
+	public PlanciaNave getPlancia() {
+		return plancia;
 	}
 
-	public void setNave(PlanciaNave nave) {
-		this.nave = nave;
+	public void setPlancia(PlanciaNave plancia) {
+		this.plancia = plancia;
 	}
 
 	public int getPunteggio() {
@@ -45,7 +45,7 @@ public class Giocatore {
 	}
 	
 	public String toString() {
-		return "Giocatore: " + getNome() + "\nPunteggio: " + getPunteggio() + "\n Informazioni nave: " + getNave(); 
+		return "Giocatore: " + getNome() + "\nPunteggio: " + getPunteggio() + "\n Informazioni plancia: " + getPlancia(); 
 	}
 	
 }

@@ -6,43 +6,17 @@ import gioco.componente.ComponenteNave;
 
 public class PlanciaNave {
 
-	private Giocatore giocatore;
-	private ArrayList<ComponenteNave> componentiNave = new ArrayList<>(); 
+	private Nave nave; 
 	private int posizionePartenza;
 	
-	public PlanciaNave(Giocatore giocatore, ArrayList<ComponenteNave> componentiNave, int posizionePartenza)throws Exception {
-		setGiocatore(giocatore);
-		setComponentiNave(componentiNave);
+	public PlanciaNave(int posizionePartenza)throws Exception {
+		nave = new Nave(new ArrayList<>());
 		setPosizionePartenza(posizionePartenza);
-	}
-
-	public Giocatore getGiocatore() {
-		return giocatore;
-	}
-
-	public void aggiungiComponente(ComponenteNave elemento) {
-	    componentiNave.add(elemento);
 	}
 	
 	public boolean planciaValida() {
 		//Bisogna implementare i controlli per vedere se l'utente ha aggiunto un componente che non può essere piazzato in quella posizione
 		return true;
-	}
-	
-	public void setGiocatore(Giocatore giocatore) {
-		this.giocatore = giocatore;
-	}
-
-	public ArrayList<ComponenteNave> getComponentiNave() {
-		return componentiNave;
-	}
-
-	public void setComponentiNave(ArrayList<ComponenteNave> componentiNave)throws Exception {
-		if(componentiNave.isEmpty()) {
-			throw new Exception("Nessun componente presente!");
-		}
-		
-		this.componentiNave = componentiNave;
 	}
 
 	public int getPosizionePartenza() {
@@ -57,8 +31,12 @@ public class PlanciaNave {
 		this.posizionePartenza = posizionePartenza;
 	}
 	
+	public Nave getNave() {
+		return this.nave;
+	}
+	
 	public String toString() {
-		return "PlanciaNave { \nGiocatore: " + getGiocatore().toString() + "\n Componenti della nave: " + getComponentiNave().toString() + "\n}";
+		return "PlanciaNave {\nInformazioni della nave: " + getNave().toString() + "\n}";
 	}
 	
 }
