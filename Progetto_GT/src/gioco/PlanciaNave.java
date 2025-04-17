@@ -8,17 +8,31 @@ public class PlanciaNave {
 
 	private Nave nave; 
 	private int posizionePartenza;
+	private int punteggioNave;
 	
 	public PlanciaNave(int posizionePartenza)throws Exception {
 		nave = new Nave(new ArrayList<>());
 		setPosizionePartenza(posizionePartenza);
 	}
 	
-	public boolean planciaValida() {
+	public void planciaValida() {
 		//Bisogna implementare i controlli per vedere se l'utente ha aggiunto un componente che non può essere piazzato in quella posizione
-		return true;
+		//Si modifica punteggioNave a seconda che il componente sia messo in maniera corretta oppure no
+		//Se planciaValida è True aggiungi 1 altrimenti 0
+		//setPunteggioNave(0) se False, setPunteggioNave(1) se True
+		
+		//Per verificare se 
+		
 	}
 
+	public void setPunteggioNave(int punti) {
+		punteggioNave = punteggioNave + punti;
+	}
+	
+	public int getPunteggioNave() {
+		return punteggioNave;
+	}
+	
 	public int getPosizionePartenza() {
 		return posizionePartenza;
 	}

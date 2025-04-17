@@ -2,7 +2,7 @@ package gioco.componente;
 
 public abstract class ComponenteNave {
 	
-	public int id;
+	private int id;
 	private int poszioneX;
 	private int posizioneY;
 	
@@ -13,6 +13,14 @@ public abstract class ComponenteNave {
 		this.id=id;
 	}
 
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String toString() {
 		return "";
