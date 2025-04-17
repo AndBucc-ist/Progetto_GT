@@ -21,7 +21,8 @@ public class PlanciaNave {
 		//Se planciaValida è True aggiungi 1 altrimenti 0
 		//setPunteggioNave(0) se False, setPunteggioNave(1) se True
 		
-		//Per verificare se 
+		//Per verificare se il componente inserito sia valido, controllo l'orientamento (NORD, SUD, EST, OVEST)
+		//NORD deve coincidere con NORD e così via
 		
 	}
 
