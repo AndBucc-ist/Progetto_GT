@@ -1,6 +1,7 @@
 package gioco.carte;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Mazzo {
 	
@@ -20,11 +21,14 @@ public class Mazzo {
 				if(count == 8) {
 					break;
 				}
-				
 				mazzoCarte.add(elemento);
 				count++;
 			}
 		}
+	}
+	
+	public void mischiaMazzo() {
+		Collections.shuffle(this.mazzoCarte);
 	}
 	
 }
