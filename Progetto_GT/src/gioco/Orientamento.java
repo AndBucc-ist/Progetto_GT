@@ -1,0 +1,7 @@
+package gioco;
+
+public enum Orientamento {
+	NORD, SUD, EST, OVEST;
+	
+	
+}

@@ -1,10 +1,13 @@
 package gioco.componente;
 
+import gioco.Orientamento;
+
 public abstract class ComponenteNave {
 	
 	private int id;
-	private int poszioneX;
+	private int posizioneX;
 	private int posizioneY;
+	private Orientamento direzione;
 	
 	public ComponenteNave() {
 	}
@@ -13,7 +16,6 @@ public abstract class ComponenteNave {
 		this.id=id;
 	}
 
-
 	public int getId() {
 		return id;
 	}
@@ -21,9 +23,33 @@ public abstract class ComponenteNave {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public void setX(int x) {
+		this.posizioneX = x;
+	}
+	
+	public void setY(int y) {
+		this.posizioneY = y;
+	}
+	
+	public int getX() {
+		return posizioneX;
+	}
+	
+	public int getY() {
+		return posizioneY;
+	}
+	
+	public void setOrientamento(Orientamento elemento) {
+		direzione = elemento;
+	}
+	
+	public Orientamento getOrientamento() {
+		return direzione;
+	}
 
 	public String toString() {
-		return "";
+		return "Componente{ x: " + getX() + "; y: " + getY() + "; orientamento: " + getOrientamento() + " }\n";
 	}
 
 }
