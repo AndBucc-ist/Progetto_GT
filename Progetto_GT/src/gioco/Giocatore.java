@@ -8,6 +8,9 @@ public class Giocatore {
 	private PlanciaNave plancia;
 	private int punteggio;
 	protected static ArrayList<String> listaNomi = new ArrayList<>();
+	private int crediti = 0;
+    private int equipaggio = 0;
+    private int merce = 0;
 	
 	public Giocatore(String nome, PlanciaNave plancia) throws Exception {
 		setNome(nome);
@@ -43,6 +46,31 @@ public class Giocatore {
 	public void setPunteggio(int punteggio) {
 		this.punteggio = punteggio;
 	}
+	
+	
+	public void aggiungiCrediti(int quantita) {
+        this.crediti = this.crediti + quantita;
+    }
+
+    public void aumentaEquipaggio(int quantita) {
+        this.equipaggio = this.equipaggio + quantita;
+    }
+
+    public void aggiungiMerce(int quantita) {
+        this.merce = this.merce + quantita;
+    }
+    
+    public void rimuoviCrediti(int quantita) {
+        this.crediti = this.crediti - quantita;
+    }
+
+    public void diminuisciEquipaggio(int quantita) {
+        this.equipaggio = this.equipaggio - quantita;
+    }
+
+    public void rimuoviMerce(int quantita) {
+        this.merce = this.merce - quantita;
+    }
 	
 	public String toString() {
 		return "Giocatore: " + getNome() + "\nPunteggio: " + getPunteggio() + "\n Informazioni plancia: " + getPlancia(); 
