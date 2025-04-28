@@ -71,6 +71,20 @@ public class Giocatore {
     public void rimuoviMerce(int quantita) {
         this.merce = this.merce - quantita;
     }
+    
+    public int getMerce() {
+    	return this.merce;
+    }
+    
+    public void setMerce(int merce) {
+    	this.merce = merce;
+    }
+    
+    public void perdiMercePercentuale(int intensitaEvento) {
+    	int numeroMerciDaElimianre = (getMerce()/100) * intensitaEvento;
+    	
+    	setMerce(getMerce()-numeroMerciDaElimianre);
+    }
 	
 	public String toString() {
 		return "Giocatore: " + getNome() + "\nPunteggio: " + getPunteggio() + "\n Informazioni plancia: " + getPlancia(); 
