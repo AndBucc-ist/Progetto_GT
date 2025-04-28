@@ -6,8 +6,8 @@ public class CartaEventoGenerico extends CartaAvventura{
 
 	private int dannoBase;
 	
-	public CartaEventoGenerico(String nome, String descrizione, int prioritaDiEsecuzione, int dannoBase)throws Exception{
-		super(nome, descrizione, prioritaDiEsecuzione);
+	public CartaEventoGenerico(String nome, String descrizione, int prioritaDiEsecuzione, int dannoBase, String direzione)throws Exception{
+		super(nome, descrizione, prioritaDiEsecuzione,direzione);
         this.dannoBase = dannoBase;
 	}
 
@@ -16,4 +16,13 @@ public class CartaEventoGenerico extends CartaAvventura{
 		giocatore.getPlancia().getNave().dannoSubito(dannoBase);
 	}
 	
+	
+	public int getDannoBase() {
+        return dannoBase;
+    }
+
+    public void setDannoBase(int dannoBase) {
+        this.dannoBase = dannoBase;
+    }
+
 }
