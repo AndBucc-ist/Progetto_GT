@@ -1,5 +1,5 @@
 package gioco.tipo;
 
-public enum tipoEventoSpeciale {
+public enum TipoEventoSpeciale {
 	TEMPESTA_SOLARE, BUCO_NERO, CAMPO_MINATO;
 }
