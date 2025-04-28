@@ -2,6 +2,7 @@ package gioco;
 
 import java.util.ArrayList;
 
+import gioco.componente.Cannone;
 import gioco.componente.ComponenteNave;
 
 public class Nave {
@@ -11,7 +12,7 @@ public class Nave {
     private int scudiAttivi;
     private int energiaDisponibile;
     private boolean motoreAttivo;
- 
+    
     public Nave(ArrayList<ComponenteNave> componenti) {
         this.componenti = new ArrayList<>(componenti);
         this.vita = 100; 
@@ -79,7 +80,32 @@ public class Nave {
     public void aggiungiComponente(ComponenteNave elemento) {
     	getComponenti().add(elemento);
     }
+    
 
+    public int contaCannoniAttivi() {
+        int count = 0;
+        for (ComponenteNave componente : componenti) {
+            if (componente instanceof Cannone) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public void aggiungiCannone(Cannone cannone) {
+        componenti.add(cannone);
+    }
+
+    public void rimuoviCannone() {
+        for (ComponenteNave componente : componenti) {
+            if (componente instanceof Cannone) {
+                componenti.remove(componente);
+                return; 
+            }
+        }
+    }
+    
+    
     public String toString() {
     	return "Nave {\n" + "Vita: " + getVita() + "; Scudi attivi: " + getScudiAttivi() + "; Energia disponibile: " + getEnergiaDisponibile() + "; Componenti: " + getComponenti() + "\n}"; 
     }
