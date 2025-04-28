@@ -10,7 +10,16 @@ public class Gioco {
 	}
 	
 	public void iniziaPartita() {
-		mazzoCarte = new Mazzo();
+		
+		try {
+			mazzoCarte = new Mazzo();
+			mazzoCarte.caricaCarte();
+			mazzoCarte.mischiaMazzo();
+			
+			
+		}catch(Exception h){
+			h.printStackTrace();
+		}
 	}
 	
 }

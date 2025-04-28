@@ -1,0 +1,10 @@
+Nome;Descrizione;Priorità;TipoCarta;Direzione;Valore5;Valore6
+
+PioggiaMeteoriti;Una pioggia di meteoriti colpisce la nave;1;CartaEventoGenerico;NORD;25;
+AssaltoPirati;I pirati tentano di abbordare la nave;2;CartaPirati;SUD;40;80
+MercatoSpaziale;Un mercato orbitale offre scambi;1;CartaMercato;EST;NORMALE,5|ESOTICA,15|PERICOLOSA,30;NORMALE,8|ESOTICA,20|PERICOLOSA,50
+TempestaSolare;Una tempesta solare investe la nave;3;CartaEventoSpeciale;OVEST;TEMPESTA_SOLARE;3
+BucoNeroVicino;Un buco nero crea problemi gravitazionali;4;CartaEventoSpeciale;NORD;BUCO_NERO;5
+CampoMinatoSpaziale;Un campo minato nello spazio profondo;5;CartaEventoSpeciale;SUD;CAMPO_MINATO;2
+BonusCarico;Aumento le capacità di carico;1;CartaBonus;EST;MOTORE;2
+MercatoPericoloso;Mercato in zona a rischio;2;CartaMercato;SUD;NORMALE,10|PERICOLOSA,40;NORMALE,12|PERICOLOSA,50
