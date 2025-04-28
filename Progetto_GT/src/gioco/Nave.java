@@ -12,6 +12,7 @@ public class Nave {
     private int scudiAttivi;
     private int energiaDisponibile;
     private boolean motoreAttivo;
+    private int armiAttive;
     
     public Nave(ArrayList<ComponenteNave> componenti) {
         this.componenti = new ArrayList<>(componenti);
@@ -19,6 +20,7 @@ public class Nave {
         this.scudiAttivi = 0;
         this.energiaDisponibile = 10;
         this.motoreAttivo = true;
+        this.armiAttive = contaCannoniAttivi();
     }
     
     public void dannoSubito(int danno) {
@@ -102,6 +104,13 @@ public class Nave {
                 componenti.remove(componente);
                 return; 
             }
+        }
+    }
+    
+    public void disabilitaArmi(int intensitaEvento) {
+    	armiAttive = armiAttive - intensitaEvento;
+        if (armiAttive < 0) {
+        	armiAttive = 0; 
         }
     }
     
