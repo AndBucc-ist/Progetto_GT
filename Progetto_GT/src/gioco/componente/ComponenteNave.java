@@ -13,7 +13,7 @@ public abstract class ComponenteNave {
 	}
 	
 	public ComponenteNave(int id) {
-		this.id=id;
+		setId(id);
 	}
 
 	public int getId() {

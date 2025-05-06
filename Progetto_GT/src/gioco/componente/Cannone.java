@@ -5,7 +5,7 @@ import gioco.Orientamento;
 public class Cannone extends ComponenteNave {
     private int potenzaFuoco;
 
-    public Cannone(int id, int potenzaFuoco, Orientamento direzione) {
+    public Cannone(int id ,int potenzaFuoco, Orientamento direzione) {
         super(id);
         this.potenzaFuoco = potenzaFuoco;
         setOrientamento(direzione);
