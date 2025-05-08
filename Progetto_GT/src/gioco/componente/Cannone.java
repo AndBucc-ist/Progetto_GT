@@ -19,6 +19,13 @@ public class Cannone extends ComponenteNave {
         this.potenzaFuoco = potenzaFuoco;
     }
 
+    public boolean puòSparare(boolean energiaDisponibile) {
+    	if(energiaDisponibile) {
+    		return true;
+    	}
+    	return false;
+    }
+    
     public String toString() {
         return "Cannone { id: " + getId() + "; potenza: " + getPotenzaFuoco() + "; " + super.toString() + " }";
     }
