@@ -7,7 +7,7 @@ public class Batteria extends ComponenteNave {
 	private int energiaMassima;
 	private int energiaAttuale;
 	
-	public Batteria(int id, Orientamento direzione,int energiaMassima) {
+	public Batteria(int id, Orientamento direzione, int energiaMassima) {
 		super(id);
 		this.energiaMassima = energiaMassima;
 		this.energiaAttuale = energiaMassima;
@@ -42,8 +42,8 @@ public class Batteria extends ComponenteNave {
 				
 	}
 	
-	public void ricaricaEnergia() {
-		setEnergiaAttuale(getEnergiaMassima());
+	public void ricaricaEnergia(int energia) {
+		setEnergiaAttuale(energia);
 	}
 	
 	public boolean haEnergia() {
