@@ -1,5 +1,22 @@
 package gioco.componente;
 
-public class ModuloSpeciale extends ComponenteNave{
+import gioco.Orientamento;
 
+public class ModuloSpeciale extends ComponenteNave{
+	private String tipoEffetto;
+
+    public ModuloSpeciale(String tipoEffetto, int id, Orientamento direzione) {
+        super(id);
+		setOrientamento(direzione);
+        this.tipoEffetto = tipoEffetto;
+    }
+
+    public void attivaEffetto() {
+        System.out.println("Effetto speciale attivato: " + tipoEffetto);
+        // Se volessimo potremmo aggiungere delle logiche diverse (con uno switch case) per ogni effetto
+    }
+
+    public String getTipoEffetto() {
+        return tipoEffetto;
+    }
 }
