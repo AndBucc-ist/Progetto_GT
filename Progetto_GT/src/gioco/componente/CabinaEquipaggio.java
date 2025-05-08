@@ -1,5 +1,37 @@
 package gioco.componente;
 
-public class CabinaEquipaggio extends ComponenteNave{
+import gioco.Orientamento;
 
+public class CabinaEquipaggio extends ComponenteNave{
+	private final int equipaggioMax = 1;
+	private int equipaggioAttuale;
+
+	public CabinaEquipaggio(int id, Orientamento direzione) {
+		super(id);
+		setOrientamento(direzione);
+	}
+	
+	public boolean aggiungiMembro() {
+        if (equipaggioAttuale < equipaggioMax) {
+            equipaggioAttuale++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean rimuoviMembro() {
+        if (equipaggioAttuale > 0) {
+            equipaggioAttuale--;
+            return true;
+        }
+        return false;
+    }
+
+    public int getEquipaggioAttuale() {
+        return equipaggioAttuale;
+    }
+
+    public boolean èVuota() {
+        return equipaggioAttuale == 0;
+    }
 }
