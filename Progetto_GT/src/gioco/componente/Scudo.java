@@ -1,14 +1,16 @@
 package gioco.componente;
 
 import gioco.Orientamento;
+import gioco.TipoConnettore;
 
 public class Scudo extends ComponenteNave{
 	private int potenza = 1;
     private boolean usaEnergia;
 
-    public Scudo(int id, Orientamento direzione, boolean usaEnergia) {
+    public Scudo(int id, Orientamento direzione, TipoConnettore tipoConnettore ,boolean usaEnergia) {
     	super(id);
 		setOrientamento(direzione);
+		setTipoConnettore(tipoConnettore);
     	this.usaEnergia = usaEnergia;
     }
 

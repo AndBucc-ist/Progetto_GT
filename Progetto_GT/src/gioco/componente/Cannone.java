@@ -1,14 +1,16 @@
 package gioco.componente;
 
 import gioco.Orientamento;
+import gioco.TipoConnettore;
 
 public class Cannone extends ComponenteNave {
     private int potenzaFuoco;
 
-    public Cannone(int id ,int potenzaFuoco, Orientamento direzione) {
+    public Cannone(int id ,int potenzaFuoco, Orientamento direzione, TipoConnettore tipoConnettore) {
         super(id);
         this.potenzaFuoco = potenzaFuoco;
         setOrientamento(direzione);
+        setTipoConnettore(tipoConnettore);
     }
 
     public int getPotenzaFuoco() {

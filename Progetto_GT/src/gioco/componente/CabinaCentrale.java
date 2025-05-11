@@ -1,15 +1,17 @@
 package gioco.componente;
 
 import gioco.Orientamento;
+import gioco.TipoConnettore;
 
 public class CabinaCentrale extends ComponenteNave{
 
 	private final int equipaggioMax = 2;
 	private int equipaggioAttuale;
 
-	public CabinaCentrale(int id, Orientamento direzione) {
+	public CabinaCentrale(int id, Orientamento direzione, TipoConnettore tipoConnettore) {
 		super(id);
 		setOrientamento(direzione);
+		setTipoConnettore(tipoConnettore);
 	}
 	
 	public boolean aggiungiMembro() {

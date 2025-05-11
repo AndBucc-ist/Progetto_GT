@@ -1,6 +1,7 @@
 package gioco.componente;
 
 import gioco.Orientamento;
+import gioco.TipoConnettore;
 
 public abstract class ComponenteNave {
 	
@@ -8,6 +9,7 @@ public abstract class ComponenteNave {
 	private int posizioneX;
 	private int posizioneY;
 	private Orientamento direzione;
+	private TipoConnettore tipoConnettore;
 	
 	public ComponenteNave() {
 	}
@@ -40,6 +42,14 @@ public abstract class ComponenteNave {
 		return posizioneY;
 	}
 	
+	public TipoConnettore getTipoConnettore() {
+		return this.tipoConnettore;
+	}
+	
+	public void setTipoConnettore(TipoConnettore tipoConnettore) {
+		this.tipoConnettore = tipoConnettore;
+	}
+	
 	public void setOrientamento(Orientamento elemento) {
 		direzione = elemento;
 	}
@@ -49,7 +59,7 @@ public abstract class ComponenteNave {
 	}
 
 	public String toString() {
-		return "Componente{ x: " + getX() + "; y: " + getY() + "; orientamento: " + getOrientamento() + " }\n";
+		return "Componente{ x: " + getX() + "; y: " + getY() + "; orientamento: " + getOrientamento() + "; tipo di connettore: " + getTipoConnettore() + " }\n";
 	}
 
 }

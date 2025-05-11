@@ -1,14 +1,16 @@
 package gioco.componente;
 
 import gioco.Orientamento;
+import gioco.TipoConnettore;
 
 public class Laser extends ComponenteNave{
     private int danno;
 
-    public Laser(int id ,int danno, Orientamento direzione) {
+    public Laser(int id ,int danno, Orientamento direzione, TipoConnettore tipoConnettore) {
         super(id);
         this.danno = danno;
         setOrientamento(direzione);
+        setTipoConnettore(tipoConnettore);
     }
 
     public int getDanno() {
