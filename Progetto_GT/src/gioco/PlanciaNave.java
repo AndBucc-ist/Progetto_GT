@@ -10,8 +10,9 @@ public class PlanciaNave {
 	private int posizionePartenza;
 	private int punteggioNave;
 	
-	public PlanciaNave(int posizionePartenza)throws Exception {
-		nave = new Nave(new ArrayList<>());
+	public PlanciaNave(int posizionePartenza, Nave nave)throws Exception {
+		this.nave=nave;
+		//nave = new Nave(new ArrayList<>());
 		setPosizionePartenza(posizionePartenza);
 		this.punteggioNave = 0;
 	}
