@@ -1,0 +1,43 @@
+package gioco;
+import java.util.*;
+
+import gioco.componente.ComponenteNave.TipoComponente;
+
+public class PescaComponente {
+	
+	    private Map<TipoComponente, Integer> pool = new HashMap<>();
+
+	    public PescaComponente() {
+	        for (TipoComponente tipo : TipoComponente.values()) {
+	            pool.put(tipo, 10); 
+	        }
+	    }
+
+	    public Componente drawRandomComponent() {
+	        List<ComponentType> available = new ArrayList<>();
+	        for (var entry : pool.entrySet()) {
+	            if (entry.getValue() > 0) {
+	                available.add(entry.getKey());
+	            }
+	        }
+
+	        if (available.isEmpty()) return null;
+
+	        ComponentType chosen = available.get(new Random().nextInt(available.size()));
+	        pool.put(chosen, pool.get(chosen) - 1);
+	        return new Component(chosen);
+	    }
+
+	    public void returnComponent(Component component) {
+	        ComponentType type = component.getType();
+	        pool.put(type, pool.getOrDefault(type, 0) + 1);
+	    }
+
+	    public void printAvailable() {
+	        for (var entry : pool.entrySet()) {
+	            System.out.println(entry.getKey() + ": " + entry.getValue());
+	        }
+	    }
+	}
+
+}

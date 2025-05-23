@@ -1,0 +1,44 @@
+package gioco;
+import java.util.*;
+
+import gioco.componente.ComponenteNave.TipoComponente;
+import gioco.componente.ComponenteNave;
+
+public class PescaComponente {
+	
+	    private Map<TipoComponente, Integer> pesca = new HashMap<>();
+
+	    public PescaComponente() {
+	        for (TipoComponente tipo : TipoComponente.values()) {
+	        	pesca.put(tipo, 10); 
+	        }
+	    }
+
+	    public ComponenteNave pescaComponenteCasuale() {
+	        List<TipoComponente> disponibile = new ArrayList<>();
+	        for (var entry : pesca.entrySet()) {
+	            if (entry.getValue() > 0) {
+	            	disponibile.add(entry.getKey());
+	            }
+	        }
+
+	        if (disponibile.isEmpty()) return null;
+
+	        TipoComponente chosen = disponibile.get(new Random().nextInt(available.size()));
+	        pesca.put(chosen, pool.get(chosen) - 1);
+	        return new Component(chosen);
+	    }
+
+	    public void returnComponent(Component component) {
+	        ComponentType type = component.getType();
+	        pesca.put(type, pool.getOrDefault(type, 0) + 1);
+	    }
+
+	    public void printAvailable() {
+	        for (var entry : pool.entrySet()) {
+	            System.out.println(entry.getKey() + ": " + entry.getValue());
+	        }
+	    }
+	}
+
+}

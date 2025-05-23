@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;gioco.componente.ComponenteNave.Tipo&apos; in &apos;gioco.componente.ComponenteNave&apos;&#x0D;&#x0A;- Original project: &apos;Progetto_GT&apos;&#x0D;&#x0A;- Original element: &apos;gioco.componente.ComponenteNave.Tipo&apos;&#x0D;&#x0A;- Getter method name: &apos;getTipo&apos;&#x0D;&#x0A;- Setter method name: &apos;setTipo&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;Tipo, ...&apos;" flags="589830" getter="getTipo" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;gioco.componente{ComponenteNave.java[ComponenteNave^Tipo" insertion="10" setter="setTipo" stamp="1748015042232" version="1.0" visibility="1"/>
+</session>

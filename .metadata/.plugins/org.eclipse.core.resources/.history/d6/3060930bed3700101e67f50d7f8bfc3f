@@ -1,0 +1,69 @@
+package gioco.componente;
+
+import gioco.Orientamento;
+
+public abstract class ComponenteNave {
+	
+public enum TipoComponente {
+	    Batteria, CabinaCentrale, CabinaEquipaggio, Cannone, Laser, ModuloCarica,
+	    ModuloEnergia, ModuloSpeciale, Motore, Scudo
+	}
+	
+	private int id;
+	private TipoComponente Tipo;
+	private int posizioneX;
+	private int posizioneY;
+	private Orientamento direzione;
+	
+	public ComponenteNave() {
+	}
+	
+	public ComponenteNave(int id) {
+		this.id=id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public void setX(int x) {
+		this.posizioneX = x;
+	}
+	
+	public void setY(int y) {
+		this.posizioneY = y;
+	}
+	
+	public int getX() {
+		return posizioneX;
+	}
+	
+	public int getY() {
+		return posizioneY;
+	}
+	
+	public void setOrientamento(Orientamento elemento) {
+		direzione = elemento;
+	}
+	
+	public Orientamento getOrientamento() {
+		return direzione;
+	}
+
+	public String toString() {
+		return "Componente{ x: " + getX() + "; y: " + getY() + "; orientamento: " + getOrientamento() + " }\n";
+	}
+
+	public TipoComponente getTipo() {
+		return Tipo;
+	}
+
+	public void setTipo(TipoComponente tipo) {
+		Tipo = tipo;
+	}
+
+}

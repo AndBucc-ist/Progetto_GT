@@ -2,18 +2,27 @@ package gioco.componente;
 
 import gioco.Orientamento;
 
-public abstract class ComponenteNave {
+public  class ComponenteNave {
+	
+public enum TipoComponente {
+	    Batteria, CabinaCentrale, CabinaEquipaggio, Cannone, Laser, ModuloCarica,
+	    ModuloEnergia, ModuloSpeciale, Motore, Scudo
+	}
 	
 	private int id;
+	private TipoComponente Tipo;
 	private int posizioneX;
 	private int posizioneY;
 	private Orientamento direzione;
 	
-	public ComponenteNave() {
+	
+	public ComponenteNave(TipoComponente tipo, int id) {
+		this.Tipo = tipo;
+		this.id=id;
 	}
 	
-	public ComponenteNave(int id) {
-		this.id=id;
+	public TipoComponente getTipo() {
+		return Tipo;
 	}
 
 	public int getId() {
@@ -24,6 +33,11 @@ public abstract class ComponenteNave {
 		this.id = id;
 	}
 	
+
+	public void setTipo(TipoComponente tipo) {
+		Tipo = tipo;
+	}
+
 	public void setX(int x) {
 		this.posizioneX = x;
 	}
@@ -52,4 +66,5 @@ public abstract class ComponenteNave {
 		return "Componente{ x: " + getX() + "; y: " + getY() + "; orientamento: " + getOrientamento() + " }\n";
 	}
 
+	
 }

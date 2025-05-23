@@ -1,0 +1,53 @@
+package gioco;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
+import gioco.componente.ComponenteNave.TipoComponente;
+import gioco.componente.ComponenteNave;
+
+public class PescaComponente {
+	int randomId;
+	    private Map<TipoComponente, Integer> pesca = new HashMap<>();
+	    private Set<Integer> usedIds = new HashSet<>();
+	    
+
+	    public PescaComponente() {
+	        for (TipoComponente tipo : TipoComponente.values()) {
+	        	pesca.put(tipo, 10); 
+	        }
+	    }
+
+	    public ComponenteNave pescaComponenteCasuale() {
+	        List<TipoComponente> disponibile = new ArrayList<>();
+	        for (var entry : pesca.entrySet()) {
+	            if (entry.getValue() > 0) {
+	            	disponibile.add(entry.getKey());
+	            }
+	        }
+
+	        if (disponibile.isEmpty()) return null;
+
+	        TipoComponente scelta = disponibile.get(new Random().nextInt(disponibile.size()));
+	        pesca.put(scelta, pesca.get(scelta) - 1);
+	        
+	        do {
+	            randomId = ThreadLocalRandom.current().nextInt(1000, 10000);
+	        } while (usedIds.contains(randomId));
+	        usedIds.add(randomId);
+	        return new ComponenteNave(scelta,randomId);
+	        
+	    }
+
+	    public void returnComponent(ComponenteNave componente) {
+	        TipoComponente tipo = componente.getTipo();
+	        pesca.put(tipo, pesca.getOrDefault(tipo, 0) + 1);
+	    }
+
+	    public void printaDisponibile() {
+	        for (var entry : pesca.entrySet()) {
+	            System.out.println(entry.getKey() + ": " + entry.getValue());
+	        }
+	    }
+	}
+
+
