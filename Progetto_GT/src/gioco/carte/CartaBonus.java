@@ -2,6 +2,7 @@ package gioco.carte;
 
 import gioco.Giocatore;
 import gioco.Orientamento;
+import gioco.TipoConnettore;
 import gioco.componente.Cannone;
 import gioco.tipo.TipoBonus;
 
@@ -27,7 +28,7 @@ public class CartaBonus extends CartaAvventura{
                 break;
                 
             case CANNONI:
-                Cannone nuovoCannone = new Cannone(1, 2, Orientamento.NORD); 
+                Cannone nuovoCannone = new Cannone(1, 2, Orientamento.NORD, TipoConnettore.SEMPLICE); 
                 giocatore.getPlancia().getNave().aggiungiCannone(nuovoCannone);
                 System.out.println("Aggiunto cannone");
                 break;

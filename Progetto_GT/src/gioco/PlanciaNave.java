@@ -10,24 +10,100 @@ public class PlanciaNave {
 	private int posizionePartenza;
 	private int punteggioNave;
 	
-	public PlanciaNave(int posizionePartenza)throws Exception {
-		nave = new Nave(new ArrayList<>());
+	public PlanciaNave(int posizionePartenza, Nave nave)throws Exception {
+		this.nave=nave;
+		//nave = new Nave(new ArrayList<>());
 		setPosizionePartenza(posizionePartenza);
+		this.punteggioNave = 0;
 	}
 	
-	public void planciaValida() {
+	public void planciaValida(){
 		//Bisogna implementare i controlli per vedere se l'utente ha aggiunto un componente che non può essere piazzato in quella posizione
 		//Si modifica punteggioNave a seconda che il componente sia messo in maniera corretta oppure no
-		//Se planciaValida è True aggiungi 1 altrimenti 0
+		//Se in planciaValida è tutto corretto aggiungi 1 altrimenti 0
 		//setPunteggioNave(0) se False, setPunteggioNave(1) se True
 		
-		//Per verificare se il componente inserito sia valido, controllo l'orientamento (NORD, SUD, EST, OVEST)
+		//Per verificare che il componente inserito sia valido, controllo l'orientamento (NORD, SUD, EST, OVEST)
 		//NORD deve coincidere con NORD e così via per gli altri SUD, EST, OVEST
 		
+		//Potrebbe essere funzionale spostare questo controllo nella nave, verificando ciò all'inserimento di un componente
+		
+		for(ComponenteNave h: nave.getComponenti()) {
+			int X = h.getX();
+			int Y = h.getY();
+			
+			switch(h.getOrientamento()) {
+			
+			case NORD: Y = Y - 1; break;
+				
+			case SUD: Y = Y + 1; break;
+			
+			case EST: X = X + 1; break;
+			
+			case OVEST: X = X - 1; break;
+			} //Trovo la posizione dell'elemento vicino al connettore 
+			
+			
+			ComponenteNave n2 = trovaComponente(X, Y);
+			if(n2 == null) {
+				//componente non valido, non c'è niente vicino quindi non faccio + 1
+			}else {
+				
+				Orientamento opposto = direzioneOpposta(h.getOrientamento());
+				if(n2.getOrientamento() != opposto) { //Ho verificato che il secondo componente abbia dal lato opposto l'orientamento giusto per permettere la connessione
+					//Componente non valido
+				}else {
+					
+					if(!connettoriCompatibili(h.getTipoConnettore(), n2.getTipoConnettore())){
+						//Connettori incompatibili
+					}else {
+						setAggiungiInPunteggioNave(1); //Pezzo compatibile quindi aggiungo 1 al punteggio
+					}
+					
+				}
+				
+			}
+			
+		}
+		
 	}
+	
+	
+	private ComponenteNave trovaComponente(int x, int y) {
+        for (ComponenteNave c : nave.getComponenti()) {
+            if (c.getX() == x && c.getY() == y) { 
+            	return c;
+            	}
+        }
+        return null;
+    }//Trovo il componente con le coordinate X e Y
 
-	public void setPunteggioNave(int punti) {
+
+    private Orientamento direzioneOpposta(Orientamento elemento){
+        switch (elemento) {
+            case NORD: return Orientamento.SUD;
+            case SUD: return Orientamento.NORD;
+            case EST: return Orientamento.OVEST;
+            case OVEST: return Orientamento.EST;
+            default: throw new IllegalArgumentException("Orientamento non valido: " + elemento); //Lancio l'errore in caso non sia valido 
+            //Evito di stampare qualsiasi cosa direttamente nella classe ma, al massimo, stampo dove richiamo il metodo
+            //E' un errore non controllato quindi il throws non serve ma lo catturo nel catch
+        }
+    }
+
+    private boolean connettoriCompatibili(TipoConnettore a, TipoConnettore b) {
+        if (a == TipoConnettore.NESSUNO || b == TipoConnettore.NESSUNO) {
+        	return false;
+        } 
+        return a == b || a == TipoConnettore.UNIVERSALE || b == TipoConnettore.UNIVERSALE; //Connettori accettati
+    }
+
+	public void setAggiungiInPunteggioNave(int punti) {
 		punteggioNave = punteggioNave + punti;
+	}
+	
+	public void setPunteggioNave(int punti) {
+		this.punteggioNave = punteggioNave;
 	}
 	
 	public int getPunteggioNave() {
