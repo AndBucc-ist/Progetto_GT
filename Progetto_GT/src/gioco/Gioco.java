@@ -1,23 +1,35 @@
 package gioco;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import gioco.carte.Mazzo;
 import gioco.componente.ComponenteNave;
+import gioco.PlanciaNave;
+import gioco.Nave;
+import gioco.PescaComponente;
+
 
 public class Gioco {
 
 	private Mazzo mazzoCarte;
+	private Nave nave;
+	
+	private PlanciaNave plancia = new PlanciaNave(0); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
+	
+	private PescaComponente pesca = new PescaComponente();
 	
 	public Gioco() {
+		
 	}
 	
-	public ArrayList<ComponenteNave> generaComponenti(){
-		//Qua possiamo far generare la quantità di componenti anche in maniera casuale
+	public ArrayList<ComponenteNave> generaComponenti(){ //ci serve??
+		//Qua possiamo far generare la quantità di componenti anche in maniera casuale.
 		return null;
 	}
 	
 	public void iniziaPartita() {
+		
 		
 		try {
 			mazzoCarte = new Mazzo();
@@ -37,6 +49,45 @@ public class Gioco {
 		}catch(Exception h){
 			h.printStackTrace();
 		}
-	}
 	
+	
+	        Scanner scanner = new Scanner(System.in);
+	        boolean fineTurno = false;
+
+	        while (!fineTurno) {
+	        	
+	        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
+
+	            if (componenteRandom == null) {
+	                System.out.println("Niente più componenti!");
+	                break;
+	            }
+
+	            System.out.println("Hai pescato: " + componenteRandom.getTipo());
+
+	            System.out.print("Inserire le coordinate x ed y (0 -1 e -1 per scartare: ");
+	            int x = scanner.nextInt();
+	            int y = scanner.nextInt();
+
+	            if (x == -1 && y == -1) {
+	                pesca.returnComponente(componenteRandom);
+	                System.out.println("fine turno.");
+	                fineTurno = true;
+	                continue;
+	            }
+
+	            if (plancia.piazzaComponente(x, y, componenteRandom)) {
+	                System.out.println("Componente piazzata!");
+	                fineTurno = true;
+	            } else {
+	                System.out.println("Piazzamento errato. Riprova");
+	                pesca.returnComponente(componenteRandom);
+	            }
+
+	            // TODO plancia.printa();
+	        }
+	}
 }
+
+	   
+

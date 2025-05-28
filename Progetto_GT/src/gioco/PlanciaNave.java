@@ -4,20 +4,43 @@ import java.util.ArrayList;
 
 import gioco.componente.ComponenteNave;
 
+
 public class PlanciaNave {
 
 	private Nave nave; 
 	private int posizionePartenza;
 	private int punteggioNave;
 	
-	public PlanciaNave(int posizionePartenza, Nave nave)throws Exception {
-		this.nave=nave;
-		//nave = new Nave(new ArrayList<>());
-		setPosizionePartenza(posizionePartenza);
+	private ComponenteNave[][] griglia; // creazione griglia 10x10 (valore placeholder)
+	 
+	
+	
+	public PlanciaNave(int posizionePartenza) {
+		this.nave = null;
+		
+		//nave = new Nave(new ArrayList<>()); // ??
+		
+		try {
+			setPosizionePartenza(posizionePartenza);
+		} catch (Exception e) {
+	        System.err.println("Posizione di partenza errata: " + e.getMessage());
+	        this.posizionePartenza = 0; 
+	    }
+		
 		this.punteggioNave = 0;
+		griglia = new ComponenteNave[10][10];
 	}
 	
-	public void planciaValida(){
+	
+	public void setNave(Nave nave) {
+		this.nave = nave;
+	}
+	
+
+	
+	public boolean planciaValida(){ // serve che sia un booleano per poter comunicare con piazzaComponente() (vedi dopo)
+		
+		
 		//Bisogna implementare i controlli per vedere se l'utente ha aggiunto un componente che non può essere piazzato in quella posizione
 		//Si modifica punteggioNave a seconda che il componente sia messo in maniera corretta oppure no
 		//Se in planciaValida è tutto corretto aggiungi 1 altrimenti 0
@@ -69,6 +92,30 @@ public class PlanciaNave {
 	}
 	
 	
+	public boolean piazzaComponente(int x, int y, ComponenteNave c) {
+		if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+            griglia[x][y] = c;
+            return true;
+        } 
+		if (!planciaValida()){
+			System.out.println("Componente non compatibile.");
+			return false;
+		}
+		else {
+            System.out.println("Posizione non valida.");
+            return false;
+	}
+	}
+	
+	public ComponenteNave getComponente(int x, int y) {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+            return griglia[x][y];
+        }
+        return null;
+    }
+
+		
+
 	private ComponenteNave trovaComponente(int x, int y) {
         for (ComponenteNave c : nave.getComponenti()) {
             if (c.getX() == x && c.getY() == y) { 

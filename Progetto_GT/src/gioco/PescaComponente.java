@@ -42,7 +42,7 @@ public class PescaComponente {
 	        
 	    }
 
-	    public void returnComponent(ComponenteNave componente) {
+	    public void returnComponente(ComponenteNave componente) {
 	        TipoComponente tipo = componente.getTipo();
 	        pesca.put(tipo, pesca.getOrDefault(tipo, 0) + 1);
 	    }

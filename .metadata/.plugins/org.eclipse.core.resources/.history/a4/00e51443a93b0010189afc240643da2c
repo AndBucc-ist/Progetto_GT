@@ -1,0 +1,177 @@
+package gioco;
+
+import java.util.ArrayList;
+
+import gioco.componente.ComponenteNave;
+
+
+public class PlanciaNave {
+
+	private Nave nave; 
+	private int posizionePartenza;
+	private int punteggioNave;
+	
+	private ComponenteNave[][] griglia; // creazione griglia 10x10 (valore placeholder)
+	 
+	
+	
+	public PlanciaNave(int posizionePartenza) {
+		this.nave = null;
+		
+		//nave = new Nave(new ArrayList<>()); // ??
+		
+		try {
+			setPosizionePartenza(posizionePartenza);
+		} catch (Exception e) {
+	        System.err.println("Posizione di partenza errata: " + e.getMessage());
+	        this.posizionePartenza = 0; 
+	    }
+		
+		this.punteggioNave = 0;
+		griglia = new ComponenteNave[10][10];
+	}
+	
+	
+	public void setNave(Nave nave) {
+		this.nave = nave;
+	}
+	
+
+	
+	public boolean planciaValida(){ // serve che sia un booleano per poter comunicare con piazzaComponente() (vedi dopo)
+		
+		
+		//Bisogna implementare i controlli per vedere se l'utente ha aggiunto un componente che non può essere piazzato in quella posizione
+		//Si modifica punteggioNave a seconda che il componente sia messo in maniera corretta oppure no
+		//Se in planciaValida è tutto corretto aggiungi 1 altrimenti 0
+		//setPunteggioNave(0) se False, setPunteggioNave(1) se True
+		
+		//Per verificare che il componente inserito sia valido, controllo l'orientamento (NORD, SUD, EST, OVEST)
+		//NORD deve coincidere con NORD e così via per gli altri SUD, EST, OVEST
+		
+		//Potrebbe essere funzionale spostare questo controllo nella nave, verificando ciò all'inserimento di un componente
+		
+		for(ComponenteNave h: nave.getComponenti()) {
+			int X = h.getX();
+			int Y = h.getY();
+			
+			switch(h.getOrientamento()) {
+			
+			case NORD: Y = Y - 1; break;
+				
+			case SUD: Y = Y + 1; break;
+			
+			case EST: X = X + 1; break;
+			
+			case OVEST: X = X - 1; break;
+			} //Trovo la posizione dell'elemento vicino al connettore 
+			
+			
+			ComponenteNave n2 = trovaComponente(X, Y);
+			if(n2 == null) {
+				//componente non valido, non c'è niente vicino quindi non faccio + 1
+			}else {
+				
+				Orientamento opposto = direzioneOpposta(h.getOrientamento());
+				if(n2.getOrientamento() != opposto) { //Ho verificato che il secondo componente abbia dal lato opposto l'orientamento giusto per permettere la connessione
+					//Componente non valido
+				}else {
+					
+					if(!connettoriCompatibili(h.getTipoConnettore(), n2.getTipoConnettore())){
+						//Connettori incompatibili
+					}else {
+						setAggiungiInPunteggioNave(1); //Pezzo compatibile quindi aggiungo 1 al punteggio
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	public boolena piazzaComponente(int x, int y, ComponenteNave c) {
+		if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+            griglia[x][y] = c;
+        } 
+		if (!planciaValida()){
+			System.out.println("Componente non compatibile.");
+		}
+		else {
+            System.out.println("Posizione non valida.");
+	}
+	}
+	
+	public ComponenteNave getComponente(int x, int y) {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+            return griglia[x][y];
+        }
+        return null;
+    }
+
+		
+
+	private ComponenteNave trovaComponente(int x, int y) {
+        for (ComponenteNave c : nave.getComponenti()) {
+            if (c.getX() == x && c.getY() == y) { 
+            	return c;
+            	}
+        }
+        return null;
+    }//Trovo il componente con le coordinate X e Y
+
+
+    private Orientamento direzioneOpposta(Orientamento elemento){
+        switch (elemento) {
+            case NORD: return Orientamento.SUD;
+            case SUD: return Orientamento.NORD;
+            case EST: return Orientamento.OVEST;
+            case OVEST: return Orientamento.EST;
+            default: throw new IllegalArgumentException("Orientamento non valido: " + elemento); //Lancio l'errore in caso non sia valido 
+            //Evito di stampare qualsiasi cosa direttamente nella classe ma, al massimo, stampo dove richiamo il metodo
+            //E' un errore non controllato quindi il throws non serve ma lo catturo nel catch
+        }
+    }
+
+    private boolean connettoriCompatibili(TipoConnettore a, TipoConnettore b) {
+        if (a == TipoConnettore.NESSUNO || b == TipoConnettore.NESSUNO) {
+        	return false;
+        } 
+        return a == b || a == TipoConnettore.UNIVERSALE || b == TipoConnettore.UNIVERSALE; //Connettori accettati
+    }
+
+	public void setAggiungiInPunteggioNave(int punti) {
+		punteggioNave = punteggioNave + punti;
+	}
+	
+	public void setPunteggioNave(int punti) {
+		this.punteggioNave = punteggioNave;
+	}
+	
+	public int getPunteggioNave() {
+		return punteggioNave;
+	}
+	
+	public int getPosizionePartenza() {
+		return posizionePartenza;
+	}
+
+	public void setPosizionePartenza(int posizionePartenza)throws Exception {
+		if(posizionePartenza < 0) {
+			throw new Exception("Posizione non valida!");
+		}
+		
+		this.posizionePartenza = posizionePartenza;
+	}
+	
+	public Nave getNave() {
+		return this.nave;
+	}
+	
+	public String toString() {
+		return "PlanciaNave {\nInformazioni della nave: " + getNave().toString() + "\n}";
+	}
+	
+}

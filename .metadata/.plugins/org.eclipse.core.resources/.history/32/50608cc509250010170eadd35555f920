@@ -1,5 +1,0 @@
-package gioco;
-
-public enum TipoConnettore {
-
-}

@@ -1,0 +1,98 @@
+package gioco;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import gioco.carte.Mazzo;
+import gioco.componente.ComponenteNave;
+import gioco.PlanciaNave;
+import gioco.Nave;
+import gioco.PescaComponente;
+
+
+public class Gioco {
+
+	private Mazzo mazzoCarte;
+	private Nave nave;
+	
+	private PlanciaNave plancia = new PlanciaNave(0); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
+	
+	private PescaComponente pesca = new PescaComponente();
+	
+	public Gioco() {
+		
+	}
+	
+	public ArrayList<ComponenteNave> generaComponenti(){ //ci serve??
+		//Qua possiamo far generare la quantità di componenti anche in maniera casuale.
+		return null;
+	}
+	
+	public void iniziaPartita() {
+		
+		
+		try {
+			mazzoCarte = new Mazzo();
+			mazzoCarte.caricaCarte();
+			mazzoCarte.mischiaMazzo();
+			
+			System.out.println("Mazzo creato!");
+			
+			System.out.println("Creazione della nave\n");
+			//L'unico valore che deve essere generato è la lista dei componenti
+			//Possiamo generarla in maniera casuale e mostrare all'utente i componenti che avrà nella navicella poi passiamo la lista nel costruttore
+			System.out.println("Componenti presenti: ");
+			
+			
+			
+			
+		}catch(Exception h){
+			h.printStackTrace();
+		}
+	}
+	
+	        Scanner scanner = new Scanner(System.in);
+	        boolean fineTurno = false;
+
+	        while (!fineTurno) {
+	            ComponenteNave componenteRandom = PescaComponente.pescaComponenteCasuale();
+	            if (drawn == null) {
+	                System.out.println("No components left to draw!");
+	                break;
+	            }
+
+	            System.out.println("You drew: " + drawn.getType());
+
+	            System.out.print("Enter x y to place (or -1 -1 to discard and end turn): ");
+	            int x = scanner.nextInt();
+	            int y = scanner.nextInt();
+
+	            if (x == -1 && y == -1) {
+	                pool.returnComponent(drawn);
+	                System.out.println("Turn ended.");
+	                turnOver = true;
+	                continue;
+	            }
+
+	            if (board.placeComponent(x, y, drawn)) {
+	                System.out.println("Component placed!");
+	                turnOver = true;
+	            } else {
+	                System.out.println("Invalid placement. Try again or end turn.");
+	                pool.returnComponent(drawn);
+	            }
+
+	            board.printBoard();
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	        Game game = new Game();
+
+	        while (true) {
+	            game.startTurn();
+	        }
+	    }
+	}
+
+}

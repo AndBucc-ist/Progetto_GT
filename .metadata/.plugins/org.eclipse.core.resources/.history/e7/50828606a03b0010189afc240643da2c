@@ -1,0 +1,42 @@
+package gioco;
+
+import java.util.ArrayList;
+
+import gioco.carte.Mazzo;
+import gioco.componente.ComponenteNave;
+
+public class Gioco {
+
+	private Mazzo mazzoCarte;
+	
+	public Gioco() {
+	}
+	
+	public ArrayList<ComponenteNave> generaComponenti(){
+		//Qua possiamo far generare la quantità di componenti anche in maniera casuale
+		return null;
+	}
+	
+	public void iniziaPartita() {
+		
+		try {
+			mazzoCarte = new Mazzo();
+			mazzoCarte.caricaCarte();
+			mazzoCarte.mischiaMazzo();
+			
+			System.out.println("Mazzo creato!");
+			
+			System.out.println("Creazione della nave\n");
+			//L'unico valore che deve essere generato è la lista dei componenti
+			//Possiamo generarla in maniera casuale e mostrare all'utente i componenti che avrà nella navicella poi passiamo la lista nel costruttore
+			System.out.println("Componenti presenti: ");
+			
+			
+			
+			
+		}catch(Exception h){
+			h.printStackTrace();
+		}
+	}
+	
+}
