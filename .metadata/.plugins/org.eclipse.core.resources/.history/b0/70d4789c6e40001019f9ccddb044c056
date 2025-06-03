@@ -51,10 +51,6 @@ public class PlanciaNave {
 		
 		//Potrebbe essere funzionale spostare questo controllo nella nave, verificando ciò all'inserimento di un componente
 		
-		boolean unValido = false;
-		
-		
-		
 		for(ComponenteNave h: nave.getComponenti()) {
 			int X = h.getX();
 			int Y = h.getY();
@@ -85,8 +81,6 @@ public class PlanciaNave {
 						//Connettori incompatibili
 					}else {
 						setAggiungiInPunteggioNave(1); //Pezzo compatibile quindi aggiungo 1 al punteggio
-						unValido = true;
-					
 					}
 					
 				}
@@ -94,7 +88,6 @@ public class PlanciaNave {
 			}
 			
 		}
-		return unValido;
 		
 	}
 	

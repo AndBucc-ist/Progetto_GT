@@ -84,7 +84,7 @@ public class Gioco {
 	                pesca.returnComponente(componenteRandom);
 	            }
 
-	            plancia.toString();
+	            PlanciaNave.toString();
 	        }
 	}
 }
