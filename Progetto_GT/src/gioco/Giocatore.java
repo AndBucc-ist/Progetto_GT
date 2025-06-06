@@ -2,6 +2,8 @@ package gioco;
 
 import java.util.ArrayList;
 
+import gioco.errori.NomeDuplicatoException;
+
 public class Giocatore {
 
 	private String nome;
@@ -24,7 +26,7 @@ public class Giocatore {
 
 	public void setNome(String nome)throws Exception{
 		if(nome.isBlank() || listaNomi.contains(nome)) {
-			throw new Exception("Il nome inserito è già stato utilizzato!");
+			throw new NomeDuplicatoException("Il nome inserito è già stato utilizzato!");
 		}
 		
 		this.nome = nome;
