@@ -23,6 +23,10 @@ public enum TipoComponente {
 		this.id=id;
 	}
 	
+	public ComponenteNave(int id) {
+		this.id=id;
+	} 
+	
 	public TipoComponente getTipo() {
 		return Tipo;
 	}
