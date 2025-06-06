@@ -3,6 +3,7 @@ package gioco;
 import java.util.ArrayList;
 
 import gioco.componente.ComponenteNave;
+import gioco.errori.PosizioneSbagliataException;
 
 
 public class PlanciaNave {
@@ -22,7 +23,7 @@ public class PlanciaNave {
 		
 		try {
 			setPosizionePartenza(posizionePartenza);
-		} catch (Exception e) {
+		} catch (PosizioneSbagliataException e) {
 	        System.err.println("Posizione di partenza errata: " + e.getMessage());
 	        this.posizionePartenza = 0; 
 	    }
@@ -168,9 +169,9 @@ public class PlanciaNave {
 		return posizionePartenza;
 	}
 
-	public void setPosizionePartenza(int posizionePartenza)throws Exception {
+	public void setPosizionePartenza(int posizionePartenza)throws PosizioneSbagliataException {
 		if(posizionePartenza < 0) {
-			throw new Exception("Posizione non valida!");
+			throw new PosizioneSbagliataException("Posizione non valida!");
 		}
 		
 		this.posizionePartenza = posizionePartenza;
