@@ -1,5 +1,6 @@
 package gioco;
 
+import java.nio.channels.Pipe.SourceChannel;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,7 +83,7 @@ public class Gioco {
 			
 			
 	        for(Giocatore h: listaGiocatori) {
-	        
+	        	System.out.println("Questo è il turno di_ " + h.getNome()+"\n");
 	        	int x = 0;
         		int y = 0;
         		
@@ -106,11 +107,11 @@ public class Gioco {
 		            y = scanner.nextInt();
 		            scanner.nextLine();
 
-		            if ((x < -1 || y > -1) || (x>10 || y>10)) {
+		            if ((x < -1 || y < -1) || (x>10 || y>10)) {
 		                pesca.returnComponente(componenteRandom);
 		                System.out.println("fine turno.");
 		                fineTurno = true;
-		                continue;
+		                break;
 		            }
 
 		            if (h.getPlancia().piazzaComponente(x, y, componenteRandom)) {
