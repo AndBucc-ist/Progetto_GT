@@ -21,6 +21,7 @@ public class PlanciaNave {
 		
 		//nave = new Nave(new ArrayList<>()); // ??
 		
+		
 		try {
 			setPosizionePartenza(posizionePartenza);
 		} catch (PosizioneSbagliataException e) {
@@ -103,6 +104,8 @@ public class PlanciaNave {
 	public boolean piazzaComponente(int x, int y, ComponenteNave c) {
 		if (x >= 0 && x < 10 && y >= 0 && y < 10) {
             griglia[x][y] = c;
+            nave.aggiungiComponente(c, x, y);
+            
             return true;
         } 
 		if (!planciaValida()){

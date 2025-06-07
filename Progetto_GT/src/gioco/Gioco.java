@@ -118,9 +118,9 @@ public class Gioco {
 	        
 	        System.out.println("Componenti presenti: ");
 	        
-	        /*for(ComponenteNave h: plancia.getComponente()) {
+	        for(ComponenteNave h: plancia.getNave().getComponenti()) {
 	        	System.out.println(h.toString());
-	        }*/ //Per farlo funzionare i compenenti nave all'interno della plancia vanno spostati nella nave
+	        }
 	        
 	        
 			
