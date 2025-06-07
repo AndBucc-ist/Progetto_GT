@@ -73,15 +73,18 @@ public class PlanciaNave {
 			ComponenteNave n2 = trovaComponente(X, Y);
 			if(n2 == null) {
 				//componente non valido, non c'è niente vicino quindi non faccio + 1
+				unValido = false;
 			}else {
 				
 				Orientamento opposto = direzioneOpposta(h.getOrientamento());
 				if(n2.getOrientamento() != opposto) { //Ho verificato che il secondo componente abbia dal lato opposto l'orientamento giusto per permettere la connessione
 					//Componente non valido
+					unValido = false;
 				}else {
 					
 					if(!connettoriCompatibili(h.getTipoConnettore(), n2.getTipoConnettore())){
 						//Connettori incompatibili
+						unValido = false;
 					}else {
 						setAggiungiInPunteggioNave(1); //Pezzo compatibile quindi aggiungo 1 al punteggio
 						unValido = true;

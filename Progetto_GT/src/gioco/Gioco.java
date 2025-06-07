@@ -106,7 +106,7 @@ public class Gioco {
 		            y = scanner.nextInt();
 		            scanner.nextLine();
 
-		            if (x == -1 && y == -1) {
+		            if ((x < -1 || y > -1) || (x>10 || y>10)) {
 		                pesca.returnComponente(componenteRandom);
 		                System.out.println("fine turno.");
 		                fineTurno = true;
