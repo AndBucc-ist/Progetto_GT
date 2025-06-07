@@ -25,7 +25,7 @@ public class Mazzo {
 	
 	public void caricaCarte() {
 		
-		try(BufferedReader br = new BufferedReader(new FileReader("listaCarte.txt"))){
+		try(BufferedReader br = new BufferedReader(new FileReader("listaCarte"))){
 			String linea;
 			br.readLine(); //Mi serve per saltare la prima riga
 			
