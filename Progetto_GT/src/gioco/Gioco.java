@@ -14,7 +14,7 @@ public class Gioco {
 
 	private Mazzo mazzoCarte;
 	private Nave nave;
-	private PlanciaNave plancia; //posizione = 0, nave = null va bene? ci sarà un setter dopo.
+	private PlanciaNave plancia = new PlanciaNave(0); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
 	private PescaComponente pesca = new PescaComponente();
 	private ArrayList <Giocatore> listaGiocatori=new ArrayList<>();
 
@@ -32,6 +32,7 @@ public class Gioco {
 		int pos=0;
 		String nome;
 		boolean fineTurno = false;
+		
 		
 		try {
 			
@@ -55,19 +56,17 @@ public class Gioco {
 			
 			while(numGiocatori>0){
 				System.out.println("Menu aggiunta giocatore "+ pos+1 + ":\n");
-				/*nave=new Nave(componenti);
-				plancia= new PlanciaNave(pos, nave);
+				nave=new Nave(new ArrayList<ComponenteNave>());
 				pos++;  
-				System.out.prinln("Inserisci il nome del Giocatore "+pos+": ");
+				System.out.println("Inserisci il nome del Giocatore "+pos+": ");
 				nome=scanner.nextLine();
 				Giocatore giocatore= new Giocatore(nome, plancia);
 				System.out.println("Giocatore creato correttamente");
 				listaGiocatori.add(giocatore);
-					*/
+					
 				
 				numGiocatori--;
 			}
-		    
 		    
 		    
 		    
