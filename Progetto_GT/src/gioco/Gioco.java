@@ -83,6 +83,11 @@ public class Gioco {
 			
 	        for(Giocatore h: listaGiocatori) {
 	        
+	        	int x = 0;
+        		int y = 0;
+        		
+	        	while(x >-1 && y >-1 ) {
+	        		
 	        	while (!fineTurno) {
 		        	
 		        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
@@ -95,9 +100,9 @@ public class Gioco {
 		            System.out.println("Hai pescato: " + componenteRandom.getTipo());
 
 		            System.out.print("Inserire le coordinate x ed y (-1 e -1 per scartare): ");
-		            int x = scanner.nextInt();
+		            x = scanner.nextInt();
 		            scanner.nextLine();
-		            int y = scanner.nextInt();
+		            y = scanner.nextInt();
 		            scanner.nextLine();
 
 		            if (x == -1 && y == -1) {
@@ -117,6 +122,7 @@ public class Gioco {
 
 		            plancia.toString();
 		        }
+	        	}
 	        }
 			
 			
