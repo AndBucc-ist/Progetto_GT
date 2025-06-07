@@ -43,7 +43,7 @@ public class Gioco {
 		    do{
 				System.out.println("In quanti volete giocare? (max 4)");
 				numGiocatori=scanner.nextInt();
-				scanner.next();
+				scanner.nextLine();
 				if(numGiocatori<2||numGiocatori>4){
 					System.out.println("numero di giocatori non disponibile\n");
 				}else{
@@ -55,9 +55,8 @@ public class Gioco {
 				
 			
 			while(numGiocatori>0){
-				System.out.println("Menu aggiunta giocatore "+ pos+1 + ":\n");
+				System.out.println("Menu aggiunta giocatore "+ ++pos + ":\n");
 				nave=new Nave(new ArrayList<ComponenteNave>());
-				pos++;  
 				System.out.println("Inserisci il nome del Giocatore "+pos+": ");
 				nome=scanner.nextLine();
 				Giocatore giocatore= new Giocatore(nome, plancia);
@@ -92,9 +91,11 @@ public class Gioco {
 
 	            System.out.println("Hai pescato: " + componenteRandom.getTipo());
 
-	            System.out.print("Inserire le coordinate x ed y (0 -1 e -1 per scartare: ");
+	            System.out.print("Inserire le coordinate x ed y (-1 e -1 per scartare): ");
 	            int x = scanner.nextInt();
+	            scanner.nextLine();
 	            int y = scanner.nextInt();
+	            scanner.nextLine();
 
 	            if (x == -1 && y == -1) {
 	                pesca.returnComponente(componenteRandom);
