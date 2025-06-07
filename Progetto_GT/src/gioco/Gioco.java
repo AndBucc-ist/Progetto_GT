@@ -123,9 +123,9 @@ public class Gioco {
 	        
 	        System.out.println("Componenti presenti: ");
 	        
-	        /*for(ComponenteNave h: plancia.getNave().getComponenti()) {
-	        	System.out.println(h.toString());
-	        }*/
+	        for(Giocatore k: listaGiocatori) {
+	        	System.out.println(k.getPlancia().toString());
+	        }
 	        
 	        
 			
