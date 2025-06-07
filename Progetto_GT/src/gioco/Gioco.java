@@ -87,7 +87,8 @@ public class Gioco {
         		int y = 0;
         		
 	        	while(x >-1 && y >-1 ) {
-	        		
+
+	        	fineTurno = false;
 	        	while (!fineTurno) {
 		        	
 		        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
@@ -119,8 +120,6 @@ public class Gioco {
 		                System.out.println("Piazzamento errato. Riprova");
 		                pesca.returnComponente(componenteRandom);
 		            }
-
-		            plancia.toString();
 		        }
 	        	}
 	        }
