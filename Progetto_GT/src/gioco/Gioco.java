@@ -13,8 +13,8 @@ import gioco.PescaComponente;
 public class Gioco {
 
 	private Mazzo mazzoCarte;
-	private Nave nave;
-	private PlanciaNave plancia = new PlanciaNave(0); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
+	//private Nave nave = new Nave(new ArrayList<ComponenteNave>());
+	private ArrayList<PlanciaNave> plancia = new ArrayList<>(); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
 	private PescaComponente pesca = new PescaComponente();
 	private ArrayList <Giocatore> listaGiocatori=new ArrayList<>();
 
@@ -30,6 +30,7 @@ public class Gioco {
 		Scanner scanner= new Scanner(System.in);
 		int numGiocatori=0;
 		int pos=0;
+		int pos2 = 1;
 		String nome;
 		boolean fineTurno = false;
 		
@@ -55,14 +56,14 @@ public class Gioco {
 				
 			
 			while(numGiocatori>0){
+				PlanciaNave plancia = new PlanciaNave(pos2++);
 				System.out.println("Menu aggiunta giocatore "+ ++pos + ":\n");
-				nave=new Nave(new ArrayList<ComponenteNave>());
 				System.out.println("Inserisci il nome del Giocatore "+pos+": ");
 				nome=scanner.nextLine();
 				Giocatore giocatore= new Giocatore(nome, plancia);
 				System.out.println("Giocatore creato correttamente");
 				listaGiocatori.add(giocatore);
-					
+	
 				
 				numGiocatori--;
 			}
@@ -80,47 +81,51 @@ public class Gioco {
 			//Possiamo generarla in maniera casuale e mostrare all'utente i componenti che avrà nella navicella poi passiamo la lista nel costruttore
 			
 			
-	        while (!fineTurno) {
-	        	
-	        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
+	        for(Giocatore h: listaGiocatori) {
+	        
+	        	while (!fineTurno) {
+		        	
+		        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
 
-	            if (componenteRandom == null) {
-	                System.out.println("Niente più componenti!");
-	                break;
-	            }
+		            if (componenteRandom == null) {
+		                System.out.println("Niente più componenti!");
+		                break;
+		            }
 
-	            System.out.println("Hai pescato: " + componenteRandom.getTipo());
+		            System.out.println("Hai pescato: " + componenteRandom.getTipo());
 
-	            System.out.print("Inserire le coordinate x ed y (-1 e -1 per scartare): ");
-	            int x = scanner.nextInt();
-	            scanner.nextLine();
-	            int y = scanner.nextInt();
-	            scanner.nextLine();
+		            System.out.print("Inserire le coordinate x ed y (-1 e -1 per scartare): ");
+		            int x = scanner.nextInt();
+		            scanner.nextLine();
+		            int y = scanner.nextInt();
+		            scanner.nextLine();
 
-	            if (x == -1 && y == -1) {
-	                pesca.returnComponente(componenteRandom);
-	                System.out.println("fine turno.");
-	                fineTurno = true;
-	                continue;
-	            }
+		            if (x == -1 && y == -1) {
+		                pesca.returnComponente(componenteRandom);
+		                System.out.println("fine turno.");
+		                fineTurno = true;
+		                continue;
+		            }
 
-	            if (plancia.piazzaComponente(x, y, componenteRandom)) {
-	                System.out.println("Componente piazzata!");
-	                fineTurno = true;
-	            } else {
-	                System.out.println("Piazzamento errato. Riprova");
-	                pesca.returnComponente(componenteRandom);
-	            }
+		            if (h.getPlancia().piazzaComponente(x, y, componenteRandom)) {
+		                System.out.println("Componente piazzata!");
+		                fineTurno = true;
+		            } else {
+		                System.out.println("Piazzamento errato. Riprova");
+		                pesca.returnComponente(componenteRandom);
+		            }
 
-	            plancia.toString();
+		            plancia.toString();
+		        }
 	        }
+			
 			
 	        
 	        System.out.println("Componenti presenti: ");
 	        
-	        for(ComponenteNave h: plancia.getNave().getComponenti()) {
+	        /*for(ComponenteNave h: plancia.getNave().getComponenti()) {
 	        	System.out.println(h.toString());
-	        }
+	        }*/
 	        
 	        
 			

@@ -17,7 +17,7 @@ public class PlanciaNave {
 	
 	
 	public PlanciaNave(int posizionePartenza) {
-		this.nave = null;
+		this.nave = new Nave(new ArrayList<ComponenteNave>());
 		
 		//nave = new Nave(new ArrayList<>()); // ??
 		
