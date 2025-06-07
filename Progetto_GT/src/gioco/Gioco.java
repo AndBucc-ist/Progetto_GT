@@ -14,14 +14,12 @@ public class Gioco {
 
 	private Mazzo mazzoCarte;
 	private Nave nave;
-	
-	private PlanciaNave plancia = new PlanciaNave(0); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
-	
+	private PlanciaNave plancia; //posizione = 0, nave = null va bene? ci sarà un setter dopo.
 	private PescaComponente pesca = new PescaComponente();
+	private ArrayList <Giocatore> listaGiocatori=new ArrayList<>();
+
 	
-	public Gioco() {
-		
-	}
+	public Gioco() {}
 	
 	public ArrayList<ComponenteNave> generaComponenti(){ //ci serve??
 		//Qua possiamo far generare la quantità di componenti anche in maniera casuale.
@@ -29,44 +27,26 @@ public class Gioco {
 	}
 	
 	public void iniziaPartita() {
-		
+		Scanner scanner= new Scanner(System.in);
+		int numGiocatori=0;
+		int pos=0;
+		String nome;
+		boolean fineTurno = false;
 		
 		try {
-			mazzoCarte = new Mazzo();
-			mazzoCarte.caricaCarte();
-			mazzoCarte.mischiaMazzo();
-			
-			System.out.println("Mazzo creato!");
-			
-			System.out.println("Creazione della nave\n");
-			//L'unico valore che deve essere generato è la lista dei componenti
-			//Possiamo generarla in maniera casuale e mostrare all'utente i componenti che avrà nella navicella poi passiamo la lista nel costruttore
-			System.out.println("Componenti presenti: ");
-			
-			
-			
-			
-			
-			
-			Scanner scanner= new Scanner(System.in);
-			int numGiocatori=0;
-			int pos=0;
-			String nome;
-			ArrayList <Giocatore> listaGiocatori=new ArrayList<>();
 			
 			System.out.println("GALAXY TRUCKER");
-			
 		    System.out.println("Partita livello 1 (default)");
 			
-				
-			do{
+			
+		    do{
 				System.out.println("In quanti volete giocare? (max 4)");
 				numGiocatori=scanner.nextInt();
 				scanner.next();
 				if(numGiocatori<2||numGiocatori>4){
-					System.out.println("numero di giocatori non disponibile");
+					System.out.println("numero di giocatori non disponibile\n");
 				}else{
-					System.out.println("Giocatori selezionati: "+numGiocatori);
+					System.out.println("Giocatori selezionati: "+numGiocatori+"\n");
 					break;
 				}
 			}
@@ -75,8 +55,8 @@ public class Gioco {
 			
 			while(numGiocatori>0){
 				System.out.println("Menu aggiunta giocatore "+ pos+1 + ":\n");
-				/*Nave nave=new Nave(componenti);
-				PlanciaNave plancia= new PlanciaNave(pos, nave);
+				/*nave=new Nave(componenti);
+				plancia= new PlanciaNave(pos, nave);
 				pos++;  
 				System.out.prinln("Inserisci il nome del Giocatore "+pos+": ");
 				nome=scanner.nextLine();
@@ -87,14 +67,21 @@ public class Gioco {
 				
 				numGiocatori--;
 			}
+		    
+		    
+		    
+		    
+		    mazzoCarte = new Mazzo();
+			mazzoCarte.caricaCarte();
+			mazzoCarte.mischiaMazzo();
+			
+			System.out.println("Mazzo creato!");
+			
+			System.out.println("Creazione della nave\n");
+			//L'unico valore che deve essere generato è la lista dei componenti
+			//Possiamo generarla in maniera casuale e mostrare all'utente i componenti che avrà nella navicella poi passiamo la lista nel costruttore
 			
 			
-			
-
-			
-			
-			boolean fineTurno = false;
-
 	        while (!fineTurno) {
 	        	
 	        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
@@ -128,6 +115,14 @@ public class Gioco {
 	            plancia.toString();
 	        }
 			
+	        
+	        System.out.println("Componenti presenti: ");
+	        
+	        /*for(ComponenteNave h: plancia.getComponente()) {
+	        	System.out.println(h.toString());
+	        }*/ //Per farlo funzionare i compenenti nave all'interno della plancia vanno spostati nella nave
+	        
+	        
 			
 		}catch(Exception h){ //Dobbiamo mettere l'Exception specifica (magari con più catch)
 			h.printStackTrace();
