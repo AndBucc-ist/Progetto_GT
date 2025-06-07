@@ -13,6 +13,7 @@ public class Nave {
     private int energiaDisponibile;
     private boolean motoreAttivo;
     private int armiAttive;
+    private ComponenteNave[][] griglia;
     
     public Nave(ArrayList<ComponenteNave> componenti) {
         this.componenti = new ArrayList<>(componenti);
@@ -81,6 +82,10 @@ public class Nave {
     
     public void aggiungiComponente(ComponenteNave elemento) {
     	getComponenti().add(elemento);
+    }
+    
+    public void aggiungiComponente(ComponenteNave elemento, int x, int y) {
+    	griglia[x][y] = elemento;
     }
     
 
