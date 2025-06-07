@@ -57,11 +57,11 @@ public class Gioco {
 			
 			while(numGiocatori>0){
 				PlanciaNave plancia = new PlanciaNave(pos2++);
-				System.out.println("Menu aggiunta giocatore "+ ++pos + ":\n");
+				System.out.println("Menu aggiunta giocatore "+ ++pos + ":");
 				System.out.println("Inserisci il nome del Giocatore "+pos+": ");
 				nome=scanner.nextLine();
 				Giocatore giocatore= new Giocatore(nome, plancia);
-				System.out.println("Giocatore creato correttamente");
+				System.out.println("Giocatore creato correttamente\n");
 				listaGiocatori.add(giocatore);
 	
 				

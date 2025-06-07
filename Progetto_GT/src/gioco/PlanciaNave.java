@@ -12,15 +12,13 @@ public class PlanciaNave {
 	private int posizionePartenza;
 	private int punteggioNave;
 	
-	private ComponenteNave[][] griglia; // creazione griglia 10x10 (valore placeholder)
+	private ComponenteNave[][] griglia = new ComponenteNave[10][10]; // creazione griglia 10x10 (valore placeholder)
 	 
 	
 	
 	public PlanciaNave(int posizionePartenza) {
 		this.nave = new Nave(new ArrayList<ComponenteNave>());
-		
-		//nave = new Nave(new ArrayList<>()); // ??
-		
+				
 		
 		try {
 			setPosizionePartenza(posizionePartenza);
@@ -30,7 +28,6 @@ public class PlanciaNave {
 	    }
 		
 		this.punteggioNave = 0;
-		griglia = new ComponenteNave[10][10];
 	}
 	
 	
