@@ -1,5 +1,4 @@
 Nome;Descrizione;Priorità;TipoCarta;Direzione;Valore5;Valore6
-
 PioggiaMeteoriti;Una pioggia di meteoriti colpisce la nave;1;CartaEventoGenerico;NORD;25;
 AssaltoPirati;I pirati tentano di abbordare la nave;2;CartaPirati;SUD;40;80
 MercatoSpaziale;Un mercato orbitale offre scambi;1;CartaMercato;EST;NORMALE,5|ESOTICA,15|PERICOLOSA,30;NORMALE,8|ESOTICA,20|PERICOLOSA,50
