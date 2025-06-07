@@ -75,7 +75,7 @@ public class Gioco {
 			mazzoCarte.caricaCarte();
 			mazzoCarte.mischiaMazzo();
 			
-			System.out.println("Mazzo creato!");
+			System.out.println("Mazzo creato!\n");
 			
 			System.out.println("Creazione della nave\n");
 			//L'unico valore che deve essere generato è la lista dei componenti
@@ -83,7 +83,7 @@ public class Gioco {
 			
 			
 	        for(Giocatore h: listaGiocatori) {
-	        	System.out.println("Questo è il turno di_ " + h.getNome()+"\n");
+	        	System.out.println("Questo è il turno di " + h.getNome());
 	        	int x = 0;
         		int y = 0;
         		
@@ -95,11 +95,11 @@ public class Gioco {
 		        	ComponenteNave componenteRandom = pesca.pescaComponenteCasuale();
 
 		            if (componenteRandom == null) {
-		                System.out.println("Niente più componenti!");
+		                System.out.println("\nNiente più componenti!");
 		                break;
 		            }
 
-		            System.out.println("Hai pescato: " + componenteRandom.getTipo());
+		            System.out.println("\nHai pescato: " + componenteRandom.getTipo());
 
 		            System.out.print("Inserire le coordinate x ed y (-1 e -1 per scartare): ");
 		            x = scanner.nextInt();
@@ -107,30 +107,38 @@ public class Gioco {
 		            y = scanner.nextInt();
 		            scanner.nextLine();
 
-		            if ((x < -1 || y < -1) || (x>10 || y>10)) {
+		            if ((x <= -1 || y <= -1) || (x>10 || y>10)) {
 		                pesca.returnComponente(componenteRandom);
-		                System.out.println("fine turno.");
+		                System.out.println("fine turno.\n");
 		                fineTurno = true;
 		                break;
 		            }
-
+		            
+		            componenteRandom.setX(x);
+		            componenteRandom.setY(y);
+		            componenteRandom.setOrientamento(Orientamento.orientamentoCasuale());
+		            componenteRandom.setTipoConnettore(TipoConnettore.connettoreCasuale());
+		            
 		            if (h.getPlancia().piazzaComponente(x, y, componenteRandom)) {
-		                System.out.println("Componente piazzata!");
-		                fineTurno = true;
-		            } else {
-		                System.out.println("Piazzamento errato. Riprova");
-		                pesca.returnComponente(componenteRandom);
-		            }
+			            System.out.println("Componente piazzata!");
+			            fineTurno = true;
+			        } else {
+			        	//Non credo si esegua 
+			             System.out.println("Piazzamento errato. Riprova");
+			             pesca.returnComponente(componenteRandom);
+			        }
+		            
+		            
 		        }
 	        	}
 	        }
 			
 			
 	        
-	        System.out.println("Componenti presenti: ");
+	        System.out.println("Componenti presenti: \n");
 	        
 	        for(Giocatore k: listaGiocatori) {
-	        	System.out.println(k.getPlancia().toString());
+	        	System.out.println("Giocatore " + k.getNome() + " --> " + k.getPlancia().toString()+"\n");
 	        }
 	        
 	        

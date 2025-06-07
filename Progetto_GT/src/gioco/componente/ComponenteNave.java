@@ -1,5 +1,7 @@
 package gioco.componente;
 
+import java.util.Random;
+
 import gioco.Orientamento;
 import gioco.TipoConnettore;
 
@@ -19,8 +21,9 @@ public enum TipoComponente {
 	
 	
 	public ComponenteNave(TipoComponente tipo, int id) {
-		this.Tipo = tipo;
 		this.id=id;
+		this.Tipo = tipo;
+		
 	}
 	
 	public ComponenteNave(int id) {

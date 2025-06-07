@@ -86,7 +86,7 @@ public class Nave {
     
     public void aggiungiComponente(ComponenteNave elemento, int x, int y) {
     	griglia[x][y] = elemento;
-    	getComponenti().add(elemento);
+    	this.componenti.add(elemento);
     }
     
 

@@ -11,7 +11,6 @@ public class PlanciaNave {
 	private Nave nave; 
 	private int posizionePartenza;
 	private int punteggioNave;
-	
 	private ComponenteNave[][] griglia = new ComponenteNave[10][10]; // creazione griglia 10x10 (valore placeholder)
 	 
 	
