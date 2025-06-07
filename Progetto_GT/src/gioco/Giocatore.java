@@ -1,6 +1,7 @@
 package gioco;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import gioco.errori.NomeDuplicatoException;
 
@@ -9,7 +10,7 @@ public class Giocatore {
 	private String nome;
 	private PlanciaNave plancia;
 	private int punteggio;
-	protected static ArrayList<String> listaNomi = new ArrayList<>();
+	protected static Set<String> listaNomi = new HashSet<>();
 	private int crediti = 0;
     private int equipaggio = 0;
     private int merce = 0;
