@@ -101,33 +101,33 @@ public class Gioco {
 
 		            System.out.println("\nHai pescato: " + componenteRandom.getTipo());
 
-		            System.out.print("Inserire le coordinate x ed y (-1 e -1 per scartare): ");
+		            System.out.print("Inserire le coordinate x ed y (minori di 0 per scartare): ");
 		            x = scanner.nextInt();
 		            scanner.nextLine();
 		            y = scanner.nextInt();
 		            scanner.nextLine();
 
-		            if ((x <= -1 || y <= -1) || (x>10 || y>10)) {
+		            if (x <= -1 || y <= -1) {
 		                pesca.returnComponente(componenteRandom);
-		                System.out.println("fine turno.\n");
+		                System.out.println("fine del turno di " + h.getNome() + ".\n");
 		                fineTurno = true;
 		                break;
 		            }
+		            
+		            if(x>10 || y>10) {
+		                System.out.println("Coordinate non valide!\n");
+		                continue;
+		            }
+
 		            
 		            componenteRandom.setX(x);
 		            componenteRandom.setY(y);
 		            componenteRandom.setOrientamento(Orientamento.orientamentoCasuale());
 		            componenteRandom.setTipoConnettore(TipoConnettore.connettoreCasuale());
 		            
-		            if (h.getPlancia().piazzaComponente(x, y, componenteRandom)) {
-			            System.out.println("Componente piazzata!");
-			            fineTurno = true;
-			        } else {
-			        	//Non credo si esegua 
-			             System.out.println("Piazzamento errato. Riprova");
-			             pesca.returnComponente(componenteRandom);
-			        }
-		            
+		            h.getPlancia().piazzaComponente(x, y, componenteRandom);
+			        System.out.println("Componente piazzata!");
+			        fineTurno = true;
 		            
 		        }
 	        	}
