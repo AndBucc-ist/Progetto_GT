@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import gioco.tipo.TipoBonus;
 import gioco.tipo.TipoEventoSpeciale;
@@ -107,6 +108,14 @@ public class Mazzo {
 	
 	public void mischiaMazzo() {
 		Collections.shuffle(this.mazzoCarte);
+	}
+	
+	public CartaAvventura prendiCarta() {
+		Random rand = new Random();
+		int massimo = rand.nextInt(mazzoCarte.size());
+		
+		return mazzoCarte.get(massimo);
+		
 	}
 	
 }
