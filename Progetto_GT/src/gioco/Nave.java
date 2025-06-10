@@ -32,6 +32,7 @@ public class Nave {
     	}else {
     		setVita(0);
     	}
+    	System.out.println("Danno subito. Vita rimasta: " + getVita());
     }
     
    
