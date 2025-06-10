@@ -52,7 +52,7 @@ public abstract class CartaAvventura {
     }
 	
 	public String toString() {
-		return "Nome carta: " + getNome() + "; Descrizione carta: " + getDescrizione() + "Direzione carta: " + getDirezione();
+		return "Nome carta: " + getNome() + "; Descrizione carta: " + getDescrizione() + "; Direzione carta: " + getDirezione();
 	}
 	
 }
