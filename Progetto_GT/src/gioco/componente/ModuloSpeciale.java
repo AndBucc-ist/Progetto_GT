@@ -15,7 +15,6 @@ public class ModuloSpeciale extends ComponenteNave{
 
     public void attivaEffetto() {
         System.out.println("Effetto speciale attivato: " + tipoEffetto);
-        // Se volessimo potremmo aggiungere delle logiche diverse (con uno switch case) per ogni effetto
     }
 
     public String getTipoEffetto() {

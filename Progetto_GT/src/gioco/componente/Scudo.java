@@ -16,9 +16,9 @@ public class Scudo extends ComponenteNave{
 
     public int assorbiDanno(int danno, boolean energiaDisponibile) {
         if (getUsaEnergia() && !energiaDisponibile) {
-            return danno; //perchè lo scudo è inattivo
+            return danno; 
         }
-        return Math.max(0, danno - getPotenza()); //In questo modo elimino il problema dei valorei negativi e riduco il danno in base alla potenza
+        return Math.max(0, danno - getPotenza());
     }
 
     public boolean richiedeEnergia() {

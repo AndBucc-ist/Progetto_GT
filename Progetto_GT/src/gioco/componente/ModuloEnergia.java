@@ -18,9 +18,8 @@ public class ModuloEnergia extends ComponenteNave{
     }
 
     public void fornisciEnergia(Batteria batteria) {
-        //Cosi aggiungo energia senza superare il massimo
         int spazio = batteria.getEnergiaMassima() - batteria.getEnergiaAttuale();
-        int energiaDaAggiungere = Math.min(spazio, this.energiaGenerata); //prendo il più piccolo cos' mi assicuro di nona ggiugnere più energia del dovuto
+        int energiaDaAggiungere = Math.min(spazio, this.energiaGenerata);
         batteria.ricaricaEnergia(energiaDaAggiungere); 
     }
 }

@@ -20,17 +20,17 @@ public class CartaEventoSpeciale extends CartaAvventura{
 
         switch (tipoEvento) {
             case TEMPESTA_SOLARE:
-                giocatore.getPlancia().getNave().disabilitaArmi(intensitaEvento); // L'intensitaEvento indica il numero di armi disabilitate
+                giocatore.getPlancia().getNave().disabilitaArmi(intensitaEvento); 
                 System.out.println("Tempesta solare! Armi disabilitate");
                 break;
                 
             case BUCO_NERO:
-                giocatore.perdiMercePercentuale(intensitaEvento); // L'intensitaEvento indica la percentuale di merci perse
+                giocatore.perdiMercePercentuale(intensitaEvento); 
                 System.out.println("Buco nero! Merci perse");
                 break;
                 
             case CAMPO_MINATO:
-                giocatore.getPlancia().getNave().dannoSubito(intensitaEvento); // L'intensitaEvento indica il danno subito
+                giocatore.getPlancia().getNave().dannoSubito(intensitaEvento); 
                 System.out.println(" Campo minato! Danni subiti");
                 break;
                 

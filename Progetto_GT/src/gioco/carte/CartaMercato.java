@@ -27,7 +27,7 @@ public class CartaMercato extends CartaAvventura{
         System.out.println("Merci disponibili per l'acquisto: " + prezziAcquisto);
         System.out.println("Merci disponibili per la vendita: " + prezziVendita);
 
-        //Fa uno scambio predefinito per semplificazione. Si può ampliare permettendo la decisione all'utente
+       
         if (giocatore.getMerce() >= merceDaDare) {
             giocatore.rimuoviMerce(merceDaDare);
             giocatore.aggiungiMerce(merceDaRicevere);

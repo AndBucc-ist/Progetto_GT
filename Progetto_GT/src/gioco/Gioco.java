@@ -18,18 +18,12 @@ import gioco.PescaComponente;
 public class Gioco {
 
 	private Mazzo mazzoCarte;
-	//private Nave nave = new Nave(new ArrayList<ComponenteNave>());
-	private ArrayList<PlanciaNave> plancia = new ArrayList<>(); //posizione = 0, nave = null va bene? ci sarà un setter dopo.
+	private ArrayList<PlanciaNave> plancia = new ArrayList<>();
 	private PescaComponente pesca = new PescaComponente();
 	private ArrayList <Giocatore> listaGiocatori=new ArrayList<>();
 
 	
 	public Gioco() {}
-	
-	public ArrayList<ComponenteNave> generaComponenti(){ //ci serve??
-		//Qua possiamo far generare la quantità di componenti anche in maniera casuale.
-		return null;
-	}
 	
 	public void iniziaPartita() throws Exception{
 		Scanner scanner= new Scanner(System.in);
@@ -84,9 +78,6 @@ public class Gioco {
 				System.out.println("Mazzo creato!\n");
 				
 				System.out.println("Creazione della nave\n");
-				//L'unico valore che deve essere generato è la lista dei componenti
-				//Possiamo generarla in maniera casuale e mostrare all'utente i componenti che avrà nella navicella poi passiamo la lista nel costruttore
-				
 				
 		        for(Giocatore h: listaGiocatori) {
 		        	System.out.println("Questo è il turno di " + h.getNome());
@@ -212,7 +203,6 @@ public class Gioco {
 			        	 System.out.println("\n\n");
 					        System.out.println("----------------------------------------------------------------------------------");
 			        }
-				        	// Verifica esito finale
 				        	boolean tuttiMorti = true;
 				        	ArrayList<Giocatore> giocatoriVivi = new ArrayList<>();
 
@@ -238,18 +228,7 @@ public class Gioco {
 		                System.out.println("- " + g.getNome() + " (Vita: " + g.getPlancia().getNave().getVita() + ")");
 		            }
 		        }
-				       
-			        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
+	
 		        
 		        
 		        fineWhile = false;
@@ -264,6 +243,7 @@ public class Gioco {
 		
 	    }
 	        
+	    scanner.close();
 	}
 }
 

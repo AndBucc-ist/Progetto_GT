@@ -18,7 +18,7 @@ public class Mazzo {
 	private ArrayList<CartaAvventura> mazzoCarte;
 	
 	public Mazzo() {
-		// Ci sono 3 livelli: 1 - Sono 8 carte 2 e 3 non so
+		
 		mazzoCarte = new ArrayList<>();
 		
 	}
@@ -28,10 +28,10 @@ public class Mazzo {
 		String nomeFile = "listaCarte.txt";
 		try(BufferedReader br = new BufferedReader(new FileReader(nomeFile))){
 			String linea;
-			br.readLine(); //Mi serve per saltare la prima riga
+			br.readLine(); 
 			
 			while((linea = br.readLine()) != null) {
-				String[] valore = linea.split(";"); //Ricordiamoci di mettere i ; per separare altriemnti lo split non splitta 
+				String[] valore = linea.split(";");  
 				
 				String nome = valore[0];
 				String descrizione = valore[1];
@@ -58,7 +58,7 @@ public class Mazzo {
 						    
 						    //Il formato nel txt dovrebbe essere tipo: (acquisto) NORMALE|10, ESOTICA|40; (vendita)  NORMALE|5, PERICOLOSA|100
 						    
-						    String[] acquistoArray = valore[5].split("\\|"); // // servono per prendere | correttamente
+						    String[] acquistoArray = valore[5].split("\\|"); 
 						    for (String elemento : acquistoArray) {
 						        String[] parti = elemento.split(",");
 						        TipoMerce tipo = TipoMerce.valueOf(parti[0]);
