@@ -197,11 +197,8 @@ public class Gioco {
 				        		cartaPescata.applicaEffetto(giocatore);
 				        		break;
 				        		
-				        	default: break;	
-			        	}
-			        	 System.out.println("\n\n");
-					        System.out.println("----------------------------------------------------------------------------------");
-			        }
+				        	
+				        	
 				        	// Verifica esito finale
 				        	boolean tuttiMorti = true;
 				        	ArrayList<Giocatore> giocatoriVivi = new ArrayList<>();
@@ -215,22 +212,17 @@ public class Gioco {
 
 				        	if (tuttiMorti) {
 				        	    System.out.println("Hai perso. Tutti i giocatori sono morti.");
-				        	    return;
 				        	} 
 				        	    
 				        	 
 				        	}
-
+				        	default: break;	
 			        	}
-		        System.out.println("Hai vinto! Giocatori rimasti in vita:");
-		        for (Giocatore g : listaGiocatori) {
-		            if (g.getPlancia().getNave().getVita() > 0) {
-		                System.out.println("- " + g.getNome() + " (Vita: " + g.getPlancia().getNave().getVita() + ")");
-		            }
+			        	
+				        System.out.println("\n\n");
+				        System.out.println("----------------------------------------------------------------------------------");
+			        }
 		        }
-				       
-			        
-		        
 		        
 		        
 		        

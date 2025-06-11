@@ -199,38 +199,11 @@ public class Gioco {
 				        		
 				        	default: break;	
 			        	}
-			        	 System.out.println("\n\n");
-					        System.out.println("----------------------------------------------------------------------------------");
+			        	
+				        System.out.println("\n\n");
+				        System.out.println("----------------------------------------------------------------------------------");
 			        }
-				        	// Verifica esito finale
-				        	boolean tuttiMorti = true;
-				        	ArrayList<Giocatore> giocatoriVivi = new ArrayList<>();
-
-				        	for (Giocatore g : listaGiocatori) {
-				        	    if (g.getPlancia().getNave().getVita() > 0) {
-				        	        tuttiMorti = false;
-				        	        giocatoriVivi.add(g);
-				        	    }
-				        	
-
-				        	if (tuttiMorti) {
-				        	    System.out.println("Hai perso. Tutti i giocatori sono morti.");
-				        	    return;
-				        	} 
-				        	    
-				        	 
-				        	}
-
-			        	}
-		        System.out.println("Hai vinto! Giocatori rimasti in vita:");
-		        for (Giocatore g : listaGiocatori) {
-		            if (g.getPlancia().getNave().getVita() > 0) {
-		                System.out.println("- " + g.getNome() + " (Vita: " + g.getPlancia().getNave().getVita() + ")");
-		            }
 		        }
-				       
-			        
-		        
 		        
 		        
 		        
