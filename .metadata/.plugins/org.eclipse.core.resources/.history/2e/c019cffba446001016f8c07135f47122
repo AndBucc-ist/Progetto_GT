@@ -199,16 +199,6 @@ public class Gioco {
 				        		
 				        	default: break;	
 			        	}
-			        	System.out.println("\n--- Stato attuale delle navi ---");
-			        	for (Giocatore g : listaGiocatori) {
-			        	    System.out.println("Giocatore: " + g.getNome());
-			        	    System.out.println(g.getPlancia().toString());
-			        	    System.out.println("Vita nave: " + g.getPlancia().getNave().getVita());
-			        	    System.out.println("--------------------------------");
-			        	}
-			        	
-			        	System.out.println("Premi INVIO per continuare al prossimo turno...");
-			        	scanner.nextLine();
 			        	 System.out.println("\n\n");
 					        System.out.println("----------------------------------------------------------------------------------");
 			        }
