@@ -122,10 +122,8 @@ public class Gioco {
 			            
 			            if(x>10 || y>10) {
 			                System.out.println("Coordinate non valide!\n");
-			                continue;}
-			            
-			                else {
-			                	
+			                continue;
+			            }
 	
 			            
 			            componenteRandom.setX(x);
@@ -136,7 +134,7 @@ public class Gioco {
 			            h.getPlancia().piazzaComponente(x, y, componenteRandom);
 				        System.out.println("Componente piazzata!");
 				        fineTurno = true;
-			            }
+			            
 			        }
 		        	}
 		        }
