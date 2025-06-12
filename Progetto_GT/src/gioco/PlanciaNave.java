@@ -180,7 +180,7 @@ public class PlanciaNave {
     /**
      * Verifica se due connettori sono compatibili.
      * I connettori sono compatibili se:
-     * sono uguali, oppure</li>
+     * sono uguali, oppure
      * almeno uno dei due è UNIVERSALE
      * Nessuno dei due deve essere NESSUNO.
      * @param a primo connettore
