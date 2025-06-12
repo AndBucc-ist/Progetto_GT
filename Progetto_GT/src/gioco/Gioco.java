@@ -13,18 +13,46 @@ import gioco.errori.PosizioneSbagliataException;
 import gioco.PlanciaNave;
 import gioco.Nave;
 import gioco.PescaComponente;
-
+/**
+ * Questa classe gestisce una partita del gioco Galaxy Trucker.
+ * 
+ * Si occupa di creare i giocatori, preparare le navi, pescare carte e
+ * applicare gli effetti delle carte avventura.
+ */
 
 public class Gioco {
 
-	private Mazzo mazzoCarte;
-	private ArrayList<PlanciaNave> plancia = new ArrayList<>();
-	private PescaComponente pesca = new PescaComponente();
-	private ArrayList <Giocatore> listaGiocatori=new ArrayList<>();
+	/** Mazzo di carte avventura. */
+    private Mazzo mazzoCarte;
+
+    /** Plance delle navi dei giocatori. */
+    private ArrayList<PlanciaNave> plancia = new ArrayList<>();
+
+    /** Oggetto per pescare componenti della nave. */
+    private PescaComponente pesca = new PescaComponente();
+
+    /** Lista dei giocatori della partita. */
+    private ArrayList<Giocatore> listaGiocatori = new ArrayList<>();
+
+    /**
+     * Costruttore vuoto. Crea un nuovo oggetto Gioco.
+     */
 
 	
 	public Gioco() {}
-	
+	 /**
+     * Avvia la partita.
+     * 
+     * Questo metodo chiede all’utente quanti giocatori vogliono partecipare,
+     * chiede i nomi, assegna una plancia, permette di costruire la nave con
+     * componenti e poi esegue una serie di turni con effetti delle carte.
+     * 
+     * Alla fine controlla quali giocatori sono ancora in vita.
+     * 
+     * @throws Exception se ci sono errori durante la partita
+     * @throws NomeDuplicatoException se due giocatori hanno lo stesso nome
+     * @throws PosizioneSbagliataException se si prova a mettere un componente in una posizione non valida
+     */
 	public void iniziaPartita() throws Exception{
 		Scanner scanner= new Scanner(System.in);
 		int numGiocatori=0;
