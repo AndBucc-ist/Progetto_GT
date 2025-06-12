@@ -22,7 +22,7 @@ import gioco.PescaComponente;
 
 public class Gioco {
 
-	/** Mazzo di carte avventura. */
+    /** Mazzo di carte avventura. */
     private Mazzo mazzoCarte;
 
     /** Plance delle navi dei giocatori. */
@@ -40,19 +40,19 @@ public class Gioco {
 
 	
 	public Gioco() {}
-	 /**
-     * Avvia la partita.
-     * 
-     * Questo metodo chiede all’utente quanti giocatori vogliono partecipare,
-     * chiede i nomi, assegna una plancia, permette di costruire la nave con
-     * componenti e poi esegue una serie di turni con effetti delle carte.
-     * 
-     * Alla fine controlla quali giocatori sono ancora in vita.
-     * 
-     * @throws Exception se ci sono errori durante la partita
-     * @throws NomeDuplicatoException se due giocatori hanno lo stesso nome
-     * @throws PosizioneSbagliataException se si prova a mettere un componente in una posizione non valida
-     */
+	     /**
+	     * Avvia la partita.
+	     * 
+	     * Questo metodo chiede all’utente quanti giocatori vogliono partecipare,
+	     * chiede i nomi, assegna una plancia, permette di costruire la nave con
+	     * componenti e poi esegue una serie di turni con effetti delle carte.
+	     * 
+	     * Alla fine controlla quali giocatori sono ancora in vita.
+	     * 
+	     * @throws Exception se ci sono errori durante la partita
+	     * @throws NomeDuplicatoException se due giocatori hanno lo stesso nome
+	     * @throws PosizioneSbagliataException se si prova a mettere un componente in una posizione non valida
+	     */
 	public void iniziaPartita() throws Exception{
 		Scanner scanner= new Scanner(System.in);
 		int numGiocatori=0;
