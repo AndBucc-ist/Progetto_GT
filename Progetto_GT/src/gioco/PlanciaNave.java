@@ -177,7 +177,7 @@ public class PlanciaNave {
         }
     }
     
-    /**
+    /** 
      * Verifica se due connettori sono compatibili.
      * I connettori sono compatibili se:
      * sono uguali, oppure
