@@ -13,7 +13,7 @@ import gioco.errori.PosizioneSbagliataException;
  * Ogni plancia contiene una griglia 10x10 di {@link ComponenteNave} e una {@link Nave}
  * composta da più componenti con orientamenti e connettori.
  * 
- * @author 
+ * @author  
  * @version 1.0
  */
 
