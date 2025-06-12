@@ -1,14 +1,26 @@
 package gioco.carte;
 
 import gioco.Giocatore;
-
+ /**
+ * Classe astratta che rappresenta una carta avventura.
+ * Ogni carta ha un nome, una descrizione, una priorità di esecuzione e una direzione.
+ * Le carte avventura applicano un effetto specifico sul giocatore.
+ */
 public abstract class CartaAvventura {
 
 	private final String nome;
 	private final String descrizione;
 	private int prioritaDiEsecuzione;
 	private String direzione;
-	
+     /**
+     * Costruisce una carta avventura con nome, descrizione, priorità di esecuzione e direzione.
+     * 
+     * @param nome nome della carta (non vuoto)
+     * @param descrizione descrizione della carta (non vuota)
+     * @param prioritaDiEsecuzione priorità per l'ordine di esecuzione
+     * @param direzione direzione associata alla carta
+     * @throws Exception se nome o descrizione sono vuoti
+     */
 	public CartaAvventura(String nome, String descrizione, int prioritaDiEsecuzione, String direzione)throws Exception {
 		
 		if(nome.isBlank() || descrizione.isBlank()) {
@@ -21,7 +33,11 @@ public abstract class CartaAvventura {
 		this.direzione = direzione;
 	}
 
-	
+     /**
+     * Metodo astratto da implementare per applicare l'effetto della carta al giocatore.
+     * 
+     * @param giocatore il giocatore su cui applicare l'effetto
+     */
 	public abstract void applicaEffetto(Giocatore giocatore);
 	
 	
